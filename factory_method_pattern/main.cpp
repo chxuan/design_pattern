@@ -28,13 +28,13 @@ class factory
 {
 public:
     virtual ~factory() {}
-    virtual product* get_product() = 0; 
+    virtual product* make_product() = 0; 
 };
 
 class phone_factory : public factory
 {
 public:
-    virtual product* get_product()
+    virtual product* make_product()
     {
         return new phone();
     }
@@ -43,7 +43,7 @@ public:
 class tv_factory : public factory
 {
 public:
-    virtual product* get_product()
+    virtual product* make_product()
     {
         return new tv();
     }
@@ -52,10 +52,10 @@ public:
 int main()
 {
     factory* factory1 = new phone_factory();
-    product* product1 = factory1->get_product();
+    product* product1 = factory1->make_product();
 
     factory* factory2 = new tv_factory();
-    product* product2 = factory2->get_product();
+    product* product2 = factory2->make_product();
 
     delete factory1;
     delete product1;
