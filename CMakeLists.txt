@@ -4,3 +4,4 @@ project(design_pattern)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/command_pattern)
 add_subdirectory(${PROJECT_SOURCE_DIR}/factory_method_pattern)
+add_subdirectory(${PROJECT_SOURCE_DIR}/simple_factory_pattern)
