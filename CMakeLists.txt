@@ -22,3 +22,4 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/proxy_pattern)
 # 行为型
 add_subdirectory(${PROJECT_SOURCE_DIR}/command_pattern)
 add_subdirectory(${PROJECT_SOURCE_DIR}/chain_of_responsibility_pattern)
+add_subdirectory(${PROJECT_SOURCE_DIR}/interpreter_pattern)
