@@ -28,7 +28,24 @@ public:
 
     void next() override
     {
-        
+        if (_current < _aggr->len())
+        {
+            ++_current;
+        }
+    }
+
+    Item* current_item() override
+    {
+        if (_current < _aggr->len())
+        {
+            return &(*_aggr)[_current];
+        }
+        return nullptr;
+    }
+
+    bool is_done() override
+    {
+        return _current == _aggr->len();
     }
 
 private:
@@ -48,7 +65,7 @@ template<typename Item>
 class concrete_aggregate : public aggergate<Item>
 {
 public:
-    iterator_base<Item>* create_iterator()
+    iterator_base<Item>* create_iterator() override
     {
         return new concrete_iterator<Item>(this);
     }
@@ -69,5 +86,15 @@ private:
 
 int main()
 {
+    aggergate<int>* aggr = new concrete_aggregate<int>();
+    iterator_base<int>* iter = aggr->create_iterator();
+    for (iter->first(); !iter->is_done(); iter->next())
+    {
+        std::cout << *(iter->current_item()) << std::endl;
+    }
+
+    delete iter;
+    delete aggr;
+
     return 0;
 }
