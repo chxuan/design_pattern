@@ -72,5 +72,9 @@ int main()
     c->set_weapon(k);
     c->fight();
 
+    delete a;
+    delete k;
+    delete c;
+
     return 0;
 }
